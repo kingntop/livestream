@@ -18,7 +18,7 @@ const electronLocalshortcut = require('electron-localshortcut');
 const windowStateKeeper = require('electron-window-state');
 // This method will be called when Electron has finished initialization and is ready to create browser windows
 app.allowRendererProcessReuse = true;
-app.commandLine.appendSwitch('js-flags', '--max-old-space-size=4096');
+// app.commandLine.appendSwitch('js-flags', '--max-old-space-size=4096');
 
 const gotTheLock = app.requestSingleInstanceLock();
 
@@ -56,8 +56,8 @@ createBrowserWindow = () => {
     webPreferences: {
       nativeWindowOpen: true,
       devTools: true, // false if you want to remove dev tools access for the user
-      contextIsolation: true,
-      nodeIntegration: true
+      // contextIsolation: true,
+      // nodeIntegration: true
       // preload: path.join(__dirname, 'preload.js'),
     },
   });
@@ -70,7 +70,8 @@ app.on("ready", () => {
   // const window ={};
   const mainWindow = createBrowserWindow(app);
   // mainWindow.loadURL("https://makerseok.github.io/pwa-video-player/");
-  mainWindow.loadURL("https://makerseok.github.io/pwa-player/");
+  // mainWindow.loadURL("https://makerseok.github.io/pwa-player/");
+  mainWindow.loadURL("https://g01c8462bed7f63-apexdev.adb.ap-seoul-1.oraclecloudapps.com/ords/r/podo/livestream/home");
 
   // mainWindow.webContents.on('did-fail-load', () => {
   //   // mainWindow.loadURL('https://makerseok.github.io/tmp-pwa-video-player/')
@@ -182,7 +183,7 @@ app.on("ready", () => {
 
 });
 app.once('ready-to-show', () => {
-  // mainWindow.maximize()
+  mainWindow.maximize()
 })
 // Quit when all windows are closed.
 app.on("window-all-closed", () => {
